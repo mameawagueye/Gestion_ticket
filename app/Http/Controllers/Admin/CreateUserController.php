@@ -11,13 +11,17 @@ use DB;
 class CreateUserController extends Controller
 {
 
+
     public function index()
     {
-        $user = DB::table('users')->pluck('name','email','role');
-        foreach ($user as $users) {}
-    return view('/admin/createuser', compact('user'));
+        $user = DB::table('users')->get();
+        foreach ($user as $users) {
+        $name = $users->name;
+        $email = $users->email;
+        $role = $users->role;
     }
-
+    return view('/admin/createuser', compact('name','email','role'));
+    }
     public function create()
     {
         return view('products.create');
@@ -32,7 +36,6 @@ class CreateUserController extends Controller
 
         return view('admin/createuser');
     }
-
     public function edit($id)
     {
         $product = Product::find($id);
@@ -53,7 +56,7 @@ class CreateUserController extends Controller
     public function destroy($id)
     {
         $product = Product::find($id);
-        $product->delete();
+$product->delete();
 
         return redirect()->route('products.index');
     }

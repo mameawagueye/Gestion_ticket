@@ -15,22 +15,20 @@
             <thead>
                 <tr>
                     <th>Nom</th>
-                    <th>Email</th>
+<th>Email</th>
                     <th>Role</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-            @foreach ($user as $users)
                     <tr>
-                        <td>{{$users}}</td>
-                        <td></td>
-                        <td></td>
+                        <td>{{$name}}</td>
+                        <td>{{$email}}</td>
+                        <td>{{$role}}</td>
                         <td>
                             <a class="btn btn-primary" href="">Modifier</a>
                             <button type="submit" class="btn btn-danger">Supprimer</button>
-                        </td>
-            @endforeach
+</td>
                     </tr>
             </tbody>
         </table>
